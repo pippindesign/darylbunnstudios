@@ -1,9 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Test Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+<link rel="stylesheet" href="style.css">
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+<script type="text/javascript" src="script.js"></script>
+<title>Daryl Bunn Studios</title>
 </head>
 <body>
-<h1>Hello, World!</h1>
+
+<header id="header">
+	<div class="container">
+		<h1>Daryl Bunn Studios</h1>
+	</div><!-- .container -->
+</header><!-- #header -->
+
+<main id="main">
+	<section id="hero" class="full-height height-exclude-header">
+		<div class="container">
+			<h2 class="mb-4">Placeholder</h2>
+			
+			<p class="mb-0">
+				Daryl Bunn Studios is one of the most established, technologically advanced, and award&dash;laden photographic studios in the southeastern United States.
+				Our clients over the past 25 years have relied on us to consistently deliver their needed photographic images on time and within budget, as well as
+				provide the aesthetic imagination that sells.
+			</p>
+		</div><!-- .container -->
+	</section><!--- #hero -->
+	
+	<section class="py-5">
+		<div class="container">
+			<h2>Portfolio</h2>
+			
+			<div class="glide">
+				<div class="glide__track" data-glide-el="track">
+					<ul class="glide__slides" data-slides="portfolio">
+						<li class="glide__slide"></li><!-- blank slide so GlideJS doesn't crash -->
+					</ul><!-- .glide__slides -->
+				</div><!-- .glide__track -->
+			</div><!-- .glide -->
+		</div><!-- .container -->
+	</section>
+</main><!-- #main -->
+
+<footer id="footer">
+	<div class="container">
+		&copy; 2020 Daryl Bunn Studios
+	</div><!-- .container -->
+</footer><!-- #footer -->
+
 </body>
 </html>
