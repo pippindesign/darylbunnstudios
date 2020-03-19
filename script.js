@@ -1,14 +1,24 @@
 const slideData = {
 	portfolio: {
-		automotive: 10,
-		digital: 5,
-		facilities: 5,
-		food: 8,
-		home: 2,
-		people: 8,
-		personal: 7,
-		tabletop: 6,
-		tech: 3,
+		slideCategories: {
+			automotive: 10,
+			digital: 5,
+			facilities: 5,
+			food: 8,
+			home: 2,
+			people: 8,
+			personal: 7,
+			tabletop: 6,
+			tech: 3,
+		},
+		writeTag: true,
+	},
+	
+	facilities: {
+		slideCategories: {
+			facilities: 5,
+		},
+		writeTag: false,
 	},
 };
 
@@ -48,8 +58,8 @@ function contentPopulate(){
 		for(let i = 1; i < 100; i++){
 			length = slides.length;
 			
-			for(let category in slideData[key]){
-				if(i >= slideData[key][category]){
+			for(let category in slideData[key].slideCategories){
+				if(i >= slideData[key].slideCategories[category]){
 					continue;
 				}
 				
@@ -60,13 +70,18 @@ function contentPopulate(){
 				}
 				
 				const path = `images/portfolio/${category}/lg_${_i}.png`;
+				let tagContent = '';
+				
+				if(slideData[key].writeTag){
+					tagContent = `<p>
+						<span class="badge">#${category}</span>
+					</p>`;
+				}
 				
 				slides.push(`<li class="glide__slide">
 					<img src="${path}" alt="${category} image ${_i}">
 					
-					<p>
-						<span class="tag">#${category}</span>
-					</p>
+					${tagContent}
 				</li>`);
 			}
 			
@@ -86,15 +101,18 @@ window.addEventListener('DOMContentLoaded', contentPopulate);
  */
 
 function glideInit(){
-	new Glide('.glide', {
-		breakpoints: {
-			992: {
-				perView: 2,
+	document.querySelectorAll('.glide').forEach((e) => {
+		new Glide(e, {
+			breakpoints: {
+				992: {
+					perView: 2,
+				},
 			},
-		},
-		perView: 3,
-		type: 'carousel',
-	}).mount();
+			perView: 3,
+			type: 'carousel',
+			autoplay: 2000,
+		}).mount();
+	});
 }
 
 window.addEventListener('DOMContentLoaded', glideInit);
